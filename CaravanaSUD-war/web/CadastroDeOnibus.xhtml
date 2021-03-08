@@ -1,0 +1,81 @@
+<ui:composition template="/WEB-INF/template/Layout.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://java.sun.com/jsf/core"> 
+
+    <ui:define name="title">Cadastro de Onibus</ui:define>
+    <ui:define name="content">
+        <div class="ui-fluid"><br/>
+            <h1>Cadastrar Onibus</h1>
+            <h:form id="formOnibus">
+                <p:growl/>
+                <p:fieldset id="fieldsetdadosmotorista" legend="Dados Onibus">
+                    <p:panelGrid columns="4" layout="grid">
+                        <p:outputLabel value="marca:" 
+                                       for="txtMarca"/>
+                        <p:inputText id="txtMarca" 
+                                     value="#{managedOnibus.onibus.marca}"/>
+
+                        <p:outputLabel value="Modelo:" 
+                                       for="txtModelo"/>
+                        <p:inputText id="txtModelo"
+                                     value="#{managedOnibus.onibus.modelo}"/>
+
+                        <p:outputLabel value="Ano de Fabricação:" 
+                                       for="txtAnoDeFabricação"/>
+                        <p:calendar id="txtAnoDeFabricação"
+                                    value="#{managedOnibus.onibus.anoFabricacao}"/>
+
+
+                        <p:outputLabel value="placa:" 
+                                       for="txtPlaca"/>
+                        <p:inputMask id="txtPlaca"
+                                     mask="999-9999"
+                                     value="#{managedOnibus.onibus.placa}"/>
+
+                        <p:outputLabel value="Capacidade:" 
+                                       for="txtCapacidade"/>
+                        <p:selectOneMenu id="txtCapacidade" 
+                                         value="#{managedOnibus.onibus.capacidade}">
+                            <f:selectItem itemLabel="24" itemValue= "24"/>
+                            <f:selectItem itemLabel="44" itemValue= "44"/>
+                            <f:selectItem itemLabel="52" itemValue= "52"/>
+                            <f:selectItem itemLabel="Selecione a Capacidade"/>
+                        </p:selectOneMenu>
+
+                        <p:outputLabel value="Transportadora:" 
+                                       for="txtTransportadora"/>
+                        <p:selectOneMenu id="txtTransportadora"
+                                         value="#{managedOnibus.onibus.transportadora}"
+                                         converter="conversorTransportadora">
+                            <f:selectItem itemLabel="Selecione"/>
+                            <f:selectItems value="#{managedTransportadora.lsTransportadora()}"
+                                           var="lsTransportadora"
+                                           itemLabel="#{lsTransportadora.nomeFatasia}"
+                                           itemValue="#{lsTransportadora}"/>
+                        </p:selectOneMenu>
+
+                    </p:panelGrid>
+
+                </p:fieldset><br/>
+
+                <p:panelGrid columns="2" class="center semborda botao2" >
+                    <p:commandButton value="Salvar" 
+                                     icon="fa fa-save" 
+                                     iconPos="rigth"
+                                     action="#{managedOnibus.salvar()}"
+                                     />
+
+                    <p:button value="Cancelar" 
+                              icon="fa fa-times" 
+                              iconPos="rigth" />
+
+                </p:panelGrid>
+
+            </h:form>
+        </div>
+    </ui:define>
+</ui:composition>
+

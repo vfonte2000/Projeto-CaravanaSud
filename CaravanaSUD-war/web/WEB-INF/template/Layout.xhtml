@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head >
+        <title><ui:insert name="title">SUDCaravana</ui:insert></title>
+        <link href="Resource/css/Colunas.css" rel="stylesheet" type="text/css"/>
+        <link href="Resource/css/layout.css" rel="stylesheet" type="text/css"/>
+        <link href="Resource/css/geral.css" rel="stylesheet" type="text/css"/>
+        <link href="Resource/css/sobre-escrever.css" rel="stylesheet" type="text/css"/>
+        <link href="Resource/css/menu.css" rel="stylesheet" type="text/css"/>
+        <link href="Resource/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="Resource/css/menu2.css" rel="stylesheet" type="text/css"/>
+
+        <script src="Resource/js/app.js" type="text/javascript"></script>
+    </h:head>
+    <h:body>
+        <aside class="barrasuperior">
+            <h1>CARAVANA SUD</h1>
+            <nav class="menu1 icone">
+                <ul>
+                    <li><a href="indexMembro.xhtml"><i class="fa fa-home"/>Inicio</a></li>
+                    <li><a href="indexMontarCaravana.xhtml"><i class="fa fa-bus"/>Caravana</a></li>
+                    <li><a href="icones.xhtml"><i class="fa fa-user-secret"/>Administrador</a></li>
+                    <li><a href="#"><i class="fa fa-whatsapp"/>contato</a></li>
+                    <li><a href="#"><i class="fa fa-power-off"/>sair</a></li>
+                </ul>
+            </nav>
+            <a href="#" class="alternar js-alternar">
+                <img src="Resource/img/menu.png" alt="MENU"/>
+            </a>
+        </aside> 
+
+        <aside class="barralateral js-barralateral">
+            <nav class="menu2 icone">
+                <ul>
+                    <li><a href="indexMembro.xhtml"><i class="fa fa-home"/>Inicio</a></li>
+                    <li><a href="indexMontarCaravana.xhtml"><i class="fa fa-bus"/>Caravana</a></li>
+                    <li><a href="CadastroDeTransportadora.xhtml"><i class="fa fa-home"/>Administrador</a></li>
+                    <li><a href="#"><i class="fa fa-home"/>contato</a></li>
+                    <li><a href="#"><i class="fa fa-home"/>sair</a></li>
+                </ul>
+            </nav>
+        </aside> 
+
+        <div class="conteudo">
+            <section>
+                <ui:insert name="content">
+
+                </ui:insert>
+            </section>
+
+            <footer><br/>
+                <hr/><br/>
+                <p>Caravana SUD © 2016 - Todos os Direitos  Reservados "Valcelio V.Fontenele"</p>
+            </footer><br/>
+        </div>
+    </h:body>
+</html>

@@ -1,0 +1,17 @@
+.barrasuperior {position: fixed; top: 0; right: 0; left: 0; min-height: 80px; z-index: 500; background-color: #0288d1;}
+.barrasuperior h1 {color: #fff; float: left; font-size: 18px; margin: 30px;}
+.barrasuperior img {margin-top: 25px; margin-left: 5px; display: none;}
+@media(max-width: 770px){
+    .barrasuperior img {display: inline;}
+}
+
+/* BARRA LATERAL */
+.barralateral {position: fixed;	top: 80px; bottom: 0; left: 0; width: 210px; margin-left: -211px; z-index: 1; transition: margin-left 0.5s; overflow-y: auto; background-color: #0288d1; border-top: 1px solid #fff;}
+@media(min-width: 770px){
+    .barralateral{display: none;}
+}
+.barralateral.alternando {margin-left: 0px;}
+
+/* RODAPE */
+footer { width: auto; clear: both;}
+footer p { line-height: 50px; text-align: center }

@@ -1,0 +1,87 @@
+<ui:composition template="/WEB-INF/template/Layout.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://java.sun.com/jsf/core"> 
+
+    <ui:define name="title">Montar caravana</ui:define>
+    <ui:define name="content">
+        <div class="ui-fluid conteudocolunas"><br/>
+            <h1>Montar Caravana</h1>
+            <h:form>
+                <p:fieldset legend="Dados da caravana">
+                    <p:panelGrid columns="3" layout="grid">
+                        <p:panelGrid columns="2" layout="grid">
+                            <p:outputLabel value="Codigo" 
+                                           for="txtCodigocaravana"/>
+                            <p:inputText id="txtCodigocaravana"/>
+
+                            <p:outputLabel value="Pontto de Origem" 
+                                           for="txtPontoDeOrigem"/>
+                            <p:selectOneMenu id="txtPontoDeOrigem">
+                                <f:selectItem itemLabel="São Paulo-SP"/>
+                                <f:selectItem itemLabel="Parnaiba-PI"/>
+                            </p:selectOneMenu>
+
+                            <p:outputLabel value="Pontto de destino" 
+                                           for="txtPontoDeDestino"/>
+                            <p:selectOneMenu id="txtPontoDeDestino">
+                                <f:selectItem itemLabel="Parnaiba"/>
+                                <f:selectItem itemLabel="Recife-PE"/>
+                            </p:selectOneMenu>
+                        </p:panelGrid>
+
+                        <p:panelGrid columns="2" layout="grid">
+                            <p:outputLabel value="Data de Saida" 
+                                           for="txtSaida"/>
+                            <p:calendar id="txtSaida"/>
+
+                            <p:outputLabel value="Data de Chegada" 
+                                           for="txtChegada"/>
+                            <p:calendar id="txtChegada"/>
+
+                            <p:outputLabel value="Valor da caravana" 
+                                           for="txtValorcaravana"/>
+                            <p:inputText id="txtValorcaravana"/>
+                        </p:panelGrid>
+
+                        <p:panelGrid columns="3" layout="grid">
+                            <p:outputLabel value="Empresa" 
+                                           for="txtEmpresa"/>
+                            <p:button icon="ui-icon-search"/>
+                            <p:inputText id="txtEmpresa"/>
+
+
+                            <p:outputLabel value="Motorista 1" 
+                                           for="txtMotorista1"/>
+                            <p:button icon="ui-icon-search"/>
+                            <p:inputText id="txtMotorista1"/>
+
+
+                            <p:outputLabel value="Motorista 2"
+                                           for="txtMotorista2"/>
+                            <p:button icon="ui-icon-search"/>
+                            <p:inputText id="txtMotorista2"/>
+
+
+                            <p:outputLabel value="Onibus"
+                                           for="txtOnibus"/>
+                            <p:button icon="ui-icon-search"/>
+                            <p:inputText id="txtOnibus"/>
+
+                        </p:panelGrid>
+                    </p:panelGrid>
+                    <p:panelGrid columns="1" class="center semborda botao2">
+                        <p:button value="Confirmar"
+                                  icon="ui-icon-check"
+                                  iconPos="right"
+                                  outcome="indexMontarCaravana.xhtml"/>
+                    </p:panelGrid>
+                </p:fieldset><br/>
+            </h:form>
+        </div>
+    </ui:define>
+</ui:composition>
+
+

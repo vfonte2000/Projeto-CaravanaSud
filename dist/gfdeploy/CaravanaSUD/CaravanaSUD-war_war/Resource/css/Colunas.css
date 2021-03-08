@@ -1,0 +1,13 @@
+
+/* 
+    Created on : 06/09/2016, 17:34:26
+    Author     : Valcelio
+*/
+.coluna{width: 30%;float: left;height: 545px;margin:4.5px;}
+@media(max-width: 1311px){
+    .coluna{width:auto; float:none;height:auto}
+}
+
+
+
+

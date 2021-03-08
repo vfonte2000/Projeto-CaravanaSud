@@ -1,0 +1,130 @@
+<ui:composition template="/WEB-INF/template/Layout.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://java.sun.com/jsf/core"> 
+
+    <ui:define name="title">Cadastro de Motorista</ui:define>
+    <ui:define name="content">
+        <div class="ui-fluid"><br/>
+            <h1>Cadastrar Motorista</h1>
+            <h:form id="formMotorista">
+                <p:growl/>
+                <p:fieldset id="fieldsetdadosmotorista" legend="Dados Motorista" class="coluna">
+                    <p:panelGrid columns="1" layout="grid">
+                        <p:outputLabel value="Nome do Motorista:"
+                                       for="txtNomeDoMotorista"/>
+                        <p:inputText id="txtNomeDoMotorista" value="#{managedMotorista.motorista.nome}"/>
+                        
+                        <p:outputLabel value="Numero da CNH:"
+                                       for="txtNumeroCNH"/>
+                        <p:inputMask id="txtNumeroCNH"
+                                     mask="999-9999"
+                                     placeHolder="X"
+                                     required="true"
+                                     value="#{managedMotorista.motorista.nunCNH}"/>
+                        
+                        <p:outputLabel value="Vencimento da CNH"
+                                       for="txtValidadeCNH"/>
+                        <p:calendar id="txtValidadeCNH"
+                                    required="true"
+                                    value="#{managedMotorista.motorista.validadeCNH}"/>
+
+                        <p:outputLabel value="Nome da Trans:"
+                                       for="txtNomeTrans"/>
+                        <p:selectOneMenu id="txtNomeTrans" 
+                                         value="#{managedMotorista.motorista.transportadora}"
+                                         converter="conversorTransportadora">
+                            <f:selectItem itemLabel="Selecione"/>
+                            <f:selectItems value="#{managedTransportadora.lsTransportadora()}"
+                                           var="lsTransportadora"
+                                           itemLabel="#{lsTransportadora.nomeFatasia}"
+                                           itemValue="#{lsTransportadora}"/>
+                        </p:selectOneMenu>           
+
+                        <p:outputLabel value="Categoria da CNH:"
+                                       for="txtCategoria"/>
+
+                        <p:selectOneMenu id="txtCategoria"
+                                         value="#{managedMotorista.motorista.categoria}">
+                            <f:selectItem itemLabel="Selecione a Categoria"/>
+                            <f:selectItem itemLabel="A" itemValue="A"/>
+                            <f:selectItem itemLabel="B" itemValue="B"/>
+                            <f:selectItem itemLabel="C" itemValue="C"/>
+                            <f:selectItem itemLabel="D" itemValue="D"/>
+                            <f:selectItem itemLabel="E" itemValue="E"/>
+                            <f:selectItem itemLabel="AB" itemValue="AB"/>
+                            <f:selectItem itemLabel="AC" itemValue="AC"/>
+                            <f:selectItem itemLabel="AD" itemValue="AD"/>
+                            <f:selectItem itemLabel="AE" itemValue="AE"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+
+                </p:fieldset>
+
+                <p:fieldset legend="Endereço"
+                            class="coluna">
+                    <p:panelGrid columns="1" 
+                                 layout="grid">
+                        <p:outputLabel value="Cep"
+                                       for="txtCep"/>
+                        <p:inputMask id="txtCep" 
+                                     mask="99999-999"
+                                     value="#{managedMotorista.motorista.endereco.cep}"/>
+
+                        <p:outputLabel value="Logradouro"
+                                       for="txtLogradouro"/>
+                        <p:inputText id="txtLogradouro" 
+                                     value="#{managedMotorista.motorista.endereco.logradouro}" />
+
+                        <p:outputLabel value="Bairro"
+                                       for="txtBairro"/>
+                        <p:inputText id="txtBairro" value="#{managedMotorista.motorista.endereco.bairro}"/>
+                        <p:outputLabel value="Numero"
+                                       for="txtNumero"/>
+                        <p:inputText id="txtNumero" value="#{managedMotorista.motorista.endereco.numero}" />
+
+                        <p:outputLabel value="Cidade"
+                                       for="txtCidade"/>
+                        <p:inputText id="txtCidade" value="#{managedMotorista.motorista.endereco.cidade}"/>
+
+                    </p:panelGrid>
+                </p:fieldset>
+
+                <p:fieldset legend="Contato" class="coluna">
+                    <p:panelGrid columns="1" layout="grid">
+                        <p:outputLabel value="Email"
+                                       for="txtEmail"/>
+                        <p:inputText id="txtEmail" value="#{managedMotorista.motorista.contato.email}" />
+
+                        <p:outputLabel value="Fone Principal"
+                                       for="txtPrincipal"/>
+
+                        <p:inputMask id="txtPrincipal" 
+                                     mask= "(99)9.9999-9999"
+                                     value="#{managedMotorista.motorista.contato.telefone}"/>
+
+                        <p:outputLabel value="Fone Secundario" 
+                                       for="txtSecundario"/>
+                        <p:inputMask id="txtSecundario"
+                                     mask="(99)9.9999-9999"
+                                     value="#{managedMotorista.motorista.contato.teleSecudario}"/>
+                    </p:panelGrid>
+                </p:fieldset>
+
+                <p:panelGrid columns="2" class="center semborda botao1">
+                    <p:commandButton value="Salvar"
+                                     icon="fa fa-save"
+                                     iconPos="right"
+                                     action="#{managedMotorista.salvar}"
+                                     update="@form"/>
+                    
+                    <p:button value="Cancelar"
+                              outcome="indexMotorista.xhtml"/>
+                </p:panelGrid>
+            </h:form>
+        </div>
+    </ui:define>
+</ui:composition>
+

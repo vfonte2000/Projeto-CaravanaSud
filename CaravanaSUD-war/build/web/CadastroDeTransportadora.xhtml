@@ -1,0 +1,102 @@
+<ui:composition template="/WEB-INF/template/Layout.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://java.sun.com/jsf/core"> 
+
+    <ui:define name="title">CadastroDeTransportadora</ui:define>
+    <ui:define name="content">
+        <div class="ui-fluid"><br/>
+            <h1>Cadastrar Transportadora</h1>
+            <h:form id="formTransportadora">
+                <p:growl/>
+                <p:fieldset id="fieldsetdadosTransportadora" toggleable="true" legend="Dados da Tranportadora" class="coluna">
+                    <p:panelGrid columns="1" layout="grid">
+                        <p:outputLabel value="Nome Fantasia:"
+                                       for="txtFantasia"/>
+                        <p:inputText id="txtFantasia"
+                                     value="#{managedTransportadora.transportadora.nomeFatasia}"/>
+                        
+                        <p:outputLabel value="CNPJ:" 
+                                       for="txtCNPJ"/>
+                        <p:inputMask  id="txtCNPJ" 
+                                      mask="999999-999" 
+                                     
+                                     
+                                      value="#{managedTransportadora.transportadora.cnpj}"/>
+                        
+                        <p:outputLabel value="Inscrição Estadual:" 
+                                       for="txtInscriçaoEstadual"/>
+                        <p:inputMask id="txtInscriçaoEstadual" 
+                                     mask="9999-9999"
+                                     placeHolder="X"
+                                     value="#{managedTransportadora.transportadora.inscricaoEstadual}"/>
+                    </p:panelGrid>
+                </p:fieldset>
+                
+                <p:fieldset legend="Endereço"
+                            class="coluna">
+                    <p:panelGrid columns="1" 
+                                 layout="grid">
+                        <p:outputLabel value="Cep"
+                                       for="txtCep"/>
+                        <p:inputMask id="txtCep" 
+                                     mask="99999-999"
+                                     value="#{managedTransportadora.transportadora.endereco.cep}"/>
+
+                        <p:outputLabel value="Logradouro"
+                                       for="txtLogradouro"/>
+                        <p:inputText id="txtLogradouro"
+                                     value="#{managedTransportadora.transportadora.endereco.logradouro}"/>
+
+                        <p:outputLabel value="Bairro"
+                                       for="txtBairro"/>
+                        <p:inputText id="txtBairro"
+                                     value="#{managedTransportadora.transportadora.endereco.bairro}"/>
+                        
+                        <p:outputLabel value="Numero"
+                                       for="txtNumero"/>
+                        <p:inputText id="txtNumero" 
+                                     value="#{managedTransportadora.transportadora.endereco.numero}"/>
+
+                        <p:outputLabel value="Cidade"
+                                       for="txtCidade"/>
+                        <p:inputText id="txtCidade"
+                                     value="#{managedTransportadora.transportadora.endereco.cidade}"/>
+                    </p:panelGrid>
+                </p:fieldset>
+                
+                <p:fieldset legend="Contato" class="coluna">
+                    <p:panelGrid columns="1" layout="grid">
+                        <p:outputLabel value="Email"
+                                       for="txtEmail"/>
+                        <p:inputText id="txtEmail" 
+                                     value="#{managedTransportadora.transportadora.contatos.email}"/>
+
+                        <p:outputLabel value="Fone Principal"
+                                       for="txtPrincipal"/>
+                        <p:inputMask id="txtPrincipal" 
+                                     mask= "(99)9.9999-9999"
+                                     value="#{managedTransportadora.transportadora.contatos.telefone}"/>
+
+                        <p:outputLabel value="Fone Secundario" for="txtSecundario"/>
+                        <p:inputMask id="txtSecundario"
+                                     mask="(99)9.9999-9999"
+                                     value="#{managedTransportadora.transportadora.contatos.teleSecudario}"/>
+                    </p:panelGrid>
+                    
+                </p:fieldset>
+                <p:panelGrid columns="2" class="center semborda botao1">
+                    <p:commandButton value="Salva" update="@form"
+                                     icon="fa fa-save"
+                                     iconPos="right"
+                                     action="#{managedTransportadora.salvar()}"/>
+                    <p:button value="Cancelar"
+                              outcome="indexTransportadora.xhtml"/>
+                </p:panelGrid>
+            </h:form>
+        </div>
+    </ui:define>
+</ui:composition>
+

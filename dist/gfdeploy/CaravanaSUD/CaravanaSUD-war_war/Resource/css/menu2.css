@@ -1,0 +1,29 @@
+/* ALTERNA O MENU */
+.alternar {float: right; margin-right: 15px;}
+
+/* ICONE MENU*/
+.alternar img{width: 25px;}
+
+/* TRANSIÇÃO DO MENU */
+.menu2 ul a {
+    -webkit-transition: all .4s ease-in-out;
+    -moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -ms-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+}
+.icone .fa{font-size: 30px !important}
+
+.menu2 a i {margin-right: 10px;}
+
+/* MENU*/
+.menu2 ul {list-style: none;}
+.menu2 ul li {position: relative;}
+.menu2 ul a {display: block; color: #fff; text-decoration: none; text-align: left; padding: .5em 1em;}
+.menu2 ul a.selected {background: #82CCE1; color: #FFFFFF; text-shadow: 12px;}
+.menu2 ul a:hover{background: #00A7D1;}
+
+/*SUB MENU*/
+.menu2 li ul {display: none; background-color: #0288d1;}
+.menu2 li ul li {margin-left: 20px;}
+.menu2 li:hover ul {display: block;}

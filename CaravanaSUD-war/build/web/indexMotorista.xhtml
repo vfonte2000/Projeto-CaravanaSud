@@ -1,0 +1,65 @@
+<ui:composition template="/WEB-INF/template/Layout.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:define name="title">Pesquisar Motorista</ui:define>
+    <ui:define name="content">
+        <div class="ui-fluid conteudocolunas"><br/>
+            <h1>Pesquisar Motorista </h1>
+            <p:fieldset legend="Dados Gerais" style="clear: both">
+                <p:panelGrid columns="4" layout="grid"
+                             columnClasses="ui-grid-col-2,ui-grid-col-5,ui-grid-col-2,ui-grid-col-5">
+                    <p:outputLabel value="Nome do Motorista" 
+                                   for="txtMotorista"/>
+                    <p:inputText id="txtMotorista"/>
+                    
+                    <p:outputLabel value="Numero da CNH:" 
+                                   for="NumeroCNH" />
+                    <p:inputText id="NumeroCNH"/>
+                </p:panelGrid><br/>
+                
+                 <p:panelGrid columns="1" class="center semborda botao2">
+                        <p:commandButton value="Pesquisar" icon="fa fa-search" iconPos="right"/>
+                 </p:panelGrid>
+                    
+            </p:fieldset>
+            
+            <p:dataTable id="dataListaMotorista"
+                         paginator="true"
+                         paginatorAlwaysVisible="false"
+                         paginatorPosition="right"
+                         emptyMessage="Nenhum Motorista Encontrado">
+                <p:column headerText="Codigo">
+                </p:column>
+                
+                <p:column headerText="Nome">
+                </p:column>
+                
+                <p:column headerText="Telefone">
+                </p:column>
+                
+                <p:column headerText="Email" priority="2">
+                </p:column>
+                
+                <p:column headerText="Transportatora" priority="3">
+                </p:column>
+                
+                <p:column headerText="Ações">
+            
+                </p:column>            
+
+            </p:dataTable><br/>
+            
+            <p:panelGrid columns="1" class="center semborda botao2">
+                <p:button value="Novo Motorista"
+                          icon="fa fa-plus"
+                          iconPos="right"
+                          outcome="CadastroDeMotorista.xhtml"/>
+            </p:panelGrid>
+        </div>
+    </ui:define>
+</ui:composition>
+

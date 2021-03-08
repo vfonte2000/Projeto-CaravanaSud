@@ -1,0 +1,48 @@
+<ui:composition template="/WEB-INF/template/Layout.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:define name="title">Pesquisar Transportadora</ui:define>
+    <ui:define name="content">
+        <div class="ui-fluid conteudocolunas"><br/>
+            <h1>Administrador</h1>
+            <p:panelGrid columns="3" class="center semborda  " >
+                
+                <p:button value="Casdastro de Membro"
+                          outcome="CadastroDeMembro.xhtml"
+                          icon="fa fa-user-plus"
+                          iconPos="rigth"/>
+                
+                <p:button value="Cadastro de Transportadora"
+                          outcome="CadastroDeTransportadora"
+                          icon="fa fa-institution"
+                          iconPos="rigth"/>
+                
+                <p:button value="Cadastro de Motorista"
+                          outcome="CadastroDeMotorista.xhtml"
+                          icon="fa fa-male"
+                          iconPos="rigth"/>
+                
+                <p:button value="CadastroDeOnibus"
+                          outcome="CadastroDeOnibus.xhtml"
+                          icon="fa fa-bus"
+                          iconPos="rigth"/>
+                
+                <p:button value="Montar Caravana"
+                          outcome="MontarCaravana.xhtml"
+                          icon="fa fa-group"
+                          iconPos="rigth"/>
+                
+                <p:button value="Confirma Passagem"
+                          icon="fa fa-legal"
+                          iconPos="rigth"/>
+            </p:panelGrid>
+
+
+        </div>
+    </ui:define>
+</ui:composition>
+

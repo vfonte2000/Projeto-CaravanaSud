@@ -1,0 +1,157 @@
+<ui:composition template="/WEB-INF/template/Layout.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://java.sun.com/jsf/core"> 
+
+    <ui:define name="title">Cadastrar Membro</ui:define>
+    <ui:define name="content">
+        <div class="ui-fluid"><br/>
+            <h1>Cadastrar Membro</h1>
+            <h:form id="formMembro">
+                <p:growl/>
+                <p:fieldset id="fieldsetdadospessoais" legend="Dados pessoais" class="coluna">
+                    <p:panelGrid columns="1" layout="grid">
+                        <p:outputLabel value="Numero De Membro"
+                                       for="txtNumeroDeMembro"/>
+                        <p:inputMask id="txtNumeroDeMembro"
+                                     value="#{managedMembro.membro.numMembro}"
+                                     mask="999-99999999" placeHolder="X"
+                                     required="true"/>
+
+                        <p:outputLabel value="Nome:"
+                                       for="txtnome" />
+                        <p:inputText id="txtnome" required="true"
+                                     requiredMessage="Nome é Obrigatório!"
+                                     value="#{managedMembro.membro.nome}"/>
+
+                        <p:outputLabel value="Estado Civil"
+                                       for="txtEstadoCivil" />
+                        <p:selectOneMenu id="txtEstadoCivil"
+                                         required="true"
+                                         value="#{managedMembro.membro.estadoCivil}">
+                            <f:selectItem itemLabel="selecione o estado civil"/>
+                            <f:selectItem itemLabel="Casado" itemValue="Casado"/>
+                            <f:selectItem itemLabel="Solteiro" itemValue="Solteiro"/>
+                            <p:ajax event="blur" update="@form" process="@this" listener="#{managedMembro.teste()}"/>
+                        </p:selectOneMenu>
+
+                        <p:outputLabel value="CPF Do Conjuge"
+                                       id="txtcpf"
+                                       for="txtconjuge"/>      
+                        <p:inputText id="txtconjuge" rendered="#{managedMembro.conjuge}"
+                                     required="true"
+                                     value="#{managedMembro.membro.numCpfCojuge}"/>
+                        
+                        <p:outputLabel value="Sexo"
+                                       for="txtsexo"/>
+                        <p:selectOneMenu id="txtsexo" 
+                                         required="true"
+                                         value="#{managedMembro.membro.sexo}">
+                            <f:selectItem itemLabel="Selecione um sexo"/>
+                            <f:selectItem itemLabel="Masculino" itemValue="Masculino"/>
+                            <f:selectItem itemLabel="Femenino" itemValue="Feminino"/>
+                        </p:selectOneMenu>
+
+                        <p:outputLabel value="Ramo"
+                                       for="txtramo"/>
+                        <p:selectOneMenu id="txtramo"
+                                         required="true"
+                                         value="#{managedMembro.membro.ramo}">
+                            <f:selectItem itemLabel="Selecione um Ramo"/>
+                            <f:selectItem itemLabel="Ramo 1" itemValue="1"/> 
+                            <f:selectItem itemLabel="Ramo 2" itemValue="2"/>
+                            <f:selectItem itemLabel="Ramo 3" itemValue="3"/>
+                            <f:selectItem itemLabel="Ramo 4" itemValue="4"/>
+                        </p:selectOneMenu>
+
+                        <p:outputLabel value="Vencimento da recomendação"
+                                       for="txtVencimentoDaRecomendacao"/>
+                        <p:calendar id="txtVencimentoDaRecomendacao"
+                                    required="true"
+                                    value="#{managedMembro.membro.vencRecomendacao}"/>
+
+                        <p:outputLabel value="Status"
+                                       for="txtStatusMembro"/>
+                        <p:selectOneMenu id="txtStatusMembro"
+                                         value="#{managedMembro.membro.status}">
+                            <f:selectItem itemLabel="Membro Lider" itemValue="Lider"/>
+                            <f:selectItem itemLabel="Membro Passageiro" itemValue="Passageiro"/>
+                            <f:selectItem itemLabel="Selecione o Status"/>
+                        </p:selectOneMenu>
+
+                    </p:panelGrid>
+                </p:fieldset>
+
+                <p:fieldset legend="Endereço"
+                            class="coluna">
+                    <p:panelGrid columns="1" 
+                                 layout="grid">
+                        <p:outputLabel value="Cep"
+                                       for="txtCep"/>
+                        <p:inputMask id="txtCep" mask="99999-999" 
+                                     value="#{managedMembro.membro.endereco.cep}"/>
+
+                        <p:outputLabel value="Logradouro"
+                                       for="txtLogradouro"/>
+                        <p:inputText id="txtLogradouro" 
+                                     value="#{managedMembro.membro.endereco.logradouro}"/>
+
+                        <p:outputLabel value="Bairro"
+                                       for="txtBairro"/>
+                        <p:inputText id="txtBairro" 
+                                     value="#{managedMembro.membro.endereco.bairro}"/>
+                        <p:outputLabel value="Numero"
+                                       for="txtNumero"/>
+                        <p:inputText id="txtNumero" 
+                                     value="#{managedMembro.membro.endereco.numero}"/>
+
+                        <p:outputLabel value="Cidade"
+                                       for="txtCidade"/>
+                        <p:inputText id="txtCidade"
+                                     value="#{managedMembro.membro.endereco.cidade}"/>
+
+                    </p:panelGrid>
+                </p:fieldset>
+                <p:fieldset legend="Contato" class="coluna">
+                    <p:panelGrid columns="1" layout="grid">
+                        <p:outputLabel value="Email"
+                                       for="txtEmail"/>
+                        <p:inputText id="txtEmail" 
+                                     value="#{managedMembro.membro.contato.email}"/>
+
+                        <p:outputLabel value="Fone Principal"
+                                       for="txtPrincipal"/>
+
+                        <p:inputMask id="txtPrincipal" 
+                                     mask= "(99)9.9999-9999"
+                                     value="#{managedMembro.membro.contato.telefone}"/>
+
+                        <p:outputLabel value="Fone Secundario" for="txtSecundario"/>
+                        <p:inputMask id="txtSecundario"
+                                     mask="(99)9.9999-9999"
+                                     value="#{managedMembro.membro.contato.teleSecudario}"/>
+
+                    </p:panelGrid>
+                </p:fieldset>
+
+                <p:panelGrid columns="2" class="center semborda botao1">
+                     <p:commandButton value="Salvar"
+                                     id="txtSalvar"
+                                     action="#{managedMembro.salvar()}"
+                                     update="@form"
+                                     icon="fa fa-save"
+                                     iconPos="right"/>
+                     
+                    <p:button value="Cancelar"
+                              icon="ui-icon-arrowreturnthick-1-w"
+                              outcome="indexMembro.xhtml"
+                              iconPos="right"/>
+
+                </p:panelGrid>
+            </h:form><br/>
+        </div>
+    </ui:define>
+</ui:composition>
+
